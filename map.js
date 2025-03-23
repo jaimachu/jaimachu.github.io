@@ -1,6 +1,14 @@
 // Dataset procedente: https://www.businessintelligence.info/varios/longitud-latitud-pueblos-espana.html
-var map = L.map('map').setView([40.1923, -3.676], 6); // Cargamos el mapa
-/*
+var map = L.map('map', {
+    center: [40.1923, -3.676], 
+    zoom: 5,
+    minZoom: 6,
+    maxBounds: [
+        [27.0, -18.0],  // Suroeste (Islas Canarias)
+        [44.5, 5.0]     // Noreste (Pirineos)
+    ],
+    maxBoundsViscosity: 1.0 // Hace que el límite sea estricto
+});/*
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
@@ -31,7 +39,10 @@ let mapColors = {
     "Castilla León" : ["#66101F", "#3E0A12"],
     "Catalunya" : ["#8A8E91", "#5B5E60"],
     "Extremadura" : ["#FF8552", "#AF5935"],
-    "Galicia" : ["#7D8CC4", "#5E6991"]
+    "Galicia" : ["#7D8CC4", "#5E6991"],
+    "Islas Baleares" : ["#F4A261", "#C76A29"],  
+    "Canarias" : ["#FFD166", "#D19C00"],  
+    "Ceuta y Melilla" : ["#5E5D5C", "#3A3A39"]
 }
 
 document.getElementById("find-town").addEventListener("keypress", function(event) {
